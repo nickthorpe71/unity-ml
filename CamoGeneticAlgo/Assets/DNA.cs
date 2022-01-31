@@ -8,7 +8,7 @@ public class DNA : MonoBehaviour
     public float b;
 
     // gene for size
-    public float size;
+    // public float size;
 
     // person state
     bool dead = false;
@@ -33,6 +33,6 @@ public class DNA : MonoBehaviour
         sRenderer = GetComponent<SpriteRenderer>();
         sCollider = GetComponent<Collider2D>();
         sRenderer.color = new Color(r, g, b);
-        transform.localScale = new Vector3(size, size, size);
+        // transform.localScale = new Vector3(size, size, size);
     }
 }

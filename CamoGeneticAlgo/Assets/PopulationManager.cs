@@ -8,7 +8,7 @@ public class PopulationManager : MonoBehaviour
     int populationSize = 10;
     List<GameObject> population = new List<GameObject>();
     public static float elapsed = 0;
-    int trialTime = 10;
+    int trialTime = 7;
     int generation = 1;
 
     GUIStyle guiStyle = new GUIStyle();
@@ -72,20 +72,25 @@ public class PopulationManager : MonoBehaviour
         DNA dna1 = parent1.GetComponent<DNA>();
         DNA dna2 = parent2.GetComponent<DNA>();
 
-        if (Random.Range(0, 1000) < 5)
-        {
-            // swap parent DNA
-            // 50% chance to inherit either parents dna for a color value
-            offspring.GetComponent<DNA>().r = Random.Range(0.0f, 10.0f) < 5 ? dna1.r : dna2.r;
-            offspring.GetComponent<DNA>().g = Random.Range(0.0f, 10.0f) < 5 ? dna1.g : dna2.g;
-            offspring.GetComponent<DNA>().b = Random.Range(0.0f, 10.0f) < 5 ? dna1.b : dna2.b;
-            offspring.GetComponent<DNA>().size = Random.Range(0.0f, 10.0f) < 5 ? dna1.size : dna2.size;
-        }
-        else
-        {
-            // mutation
-            RandomizeDNA(offspring);
-        }
+        offspring.GetComponent<DNA>().r = Random.Range(0.0f, 10.0f) < 5 ? dna1.r : dna2.r;
+        offspring.GetComponent<DNA>().g = Random.Range(0.0f, 10.0f) < 5 ? dna1.g : dna2.g;
+        offspring.GetComponent<DNA>().b = Random.Range(0.0f, 10.0f) < 5 ? dna1.b : dna2.b;
+        // offspring.GetComponent<DNA>().size = Random.Range(0.0f, 10.0f) < 5 ? dna1.size : dna2.size;
+
+        // if (Random.Range(0, 1000) < 5)
+        // {
+        //     // swap parent DNA
+        //     // 50% chance to inherit either parents dna for a color value
+        //     offspring.GetComponent<DNA>().r = Random.Range(0.0f, 10.0f) < 5 ? dna1.r : dna2.r;
+        //     offspring.GetComponent<DNA>().g = Random.Range(0.0f, 10.0f) < 5 ? dna1.g : dna2.g;
+        //     offspring.GetComponent<DNA>().b = Random.Range(0.0f, 10.0f) < 5 ? dna1.b : dna2.b;
+        //     offspring.GetComponent<DNA>().size = Random.Range(0.0f, 10.0f) < 5 ? dna1.size : dna2.size;
+        // }
+        // else
+        // {
+        //     // mutation
+        //     RandomizeDNA(offspring);
+        // }
         return offspring;
     }
 
@@ -95,6 +100,6 @@ public class PopulationManager : MonoBehaviour
         dna.r = Random.Range(0.0f, 1.0f);
         dna.g = Random.Range(0.0f, 1.0f);
         dna.b = Random.Range(0.0f, 1.0f);
-        dna.size = Random.Range(0.1f, 1.0f);
+        // dna.size = Random.Range(0.1f, 1.0f);
     }
 }
